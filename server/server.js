@@ -7,8 +7,8 @@ url = require('url');
 dotenv.config();
 
 const port = process.env.port || 8080;
-console.log(__dirname);
-const requestListenerTest = (req, res) => {
+
+const requestListener = (req, res) => {
     const responsePathName = url.parse(req.url).pathname;
     const responseExt = path.extname(responsePathName);
 
@@ -28,16 +28,9 @@ const requestListenerTest = (req, res) => {
     }
 }
 
-const requestListener = (request, response) => {
-    const fileFullPath = getFileFullPath('public/contactinfo.vcf');
-    const file = getFile(fileFullPath);
-    response.setHeader('Content-Type', 'text/vcard');
-
-    file.pipe(response);
-}
-
-const server = http.createServer(requestListenerTest);
+const server = http.createServer(requestListener);
 console.log('Server started on port', port);
+
 server.listen(port);
 
 const getFile = fileFullPath => fs.createReadStream(fileFullPath);
