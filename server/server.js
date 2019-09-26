@@ -19,6 +19,7 @@ const requestListener = (req, res) => {
             break;
         case '.vcf':
             setContentType('text/vcard', res);
+            res.setHeader('Content-Disposition', 'attachment; filename=contactinfo.vcf');
             getFileAndRespond('public/contactinfo.vcf', res);
             break;
         default:
