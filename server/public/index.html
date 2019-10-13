@@ -7,15 +7,80 @@
     <link href="logo.png" type="image/ico" rel="shortcut icon">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Connect with varell.me</title>
+    <script>
+        function downloadContactInfo() {
+            const download = document.getElementById('download');
+            download.click();
+        }
+    </script>
+    <style>
+        body {
+            background: #212121;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            background: #0E79B2;
+            color: #98D2EB;
+            height: 3em;
+        }
+        .header_logo {
+            width: 5%;
+        }
+        .header span {
+            margin-left: 0.5em;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 70vh;
+            min-height: 300px;
+            /* background: url('Logo.png') no-repeat center center; */
+        }
+        main h1 {
+            background: #98D2EB;
+            font-weight: lighter;
+            padding: .3em;
+        }
+        main img {
+            transform: scale(.7);
+        }
+        main a {
+            display: none;
+        }
+        button {
+            /* background: #1a4882; */
+            background: #98D2EB;
+            border: none;
+            /* box-shadow: 0px 0px 2px 2px #1a4882, 0px 0px 3px 2px black; */
+            box-shadow: 0px 0px 2px 2px #98D2EB, 0px 0px 3px 2px black;
+            cursor: pointer;
+            padding: 0.5em;
+        }
+        a:hover,
+        a:focus,
+        button:hover,
+        button:focus {
+            transform:scale(1.1);
+        }
+    </style>
 </head>
 <body>
-    <main style="display:flex;flex-direction:column;align-items: center;">
-        <h1>Connect with Varell</h1>
-        <p>Click my image to save my contact info to your phone</p>
-        <a href="contactinfo.vcf" download>
+    <header class="header">
+        <span>varell.me</span>
+    </header>
+    <main>
+        <h1>Connect with varell.me</h1>
+        <img src="logo.png" alt="Logo">
+        <a id="download" href="contactinfo.vcf" download>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAXwSURBVHgB7Vs7LDVBFD7399ag1HhEQ4FEpfGqkJDQSShQaIhEQUEkJCi0KCi8JUpCQeMZPQo6r0JN5W3//TbZm92Z2bk7u8OfP/d+yWavubN3d77zzTlnzqxIZmamQXGMPxTnSBBAcY4EARTnSBBAcY5k+sd4f38nwzAoJSWF/vz5fXu4CMjPz3d9+fT0RM/Pz6QLZWVl1tn5m9fX19b56+uLIpFIlIjfIiPizAQfHx8pKysr+iUetKSkRBsJ7O9vb29TS0uLsG9SUhIlJydb55+Ei+bZ2VnXl3hY22ph0dHR4Ro8sLW15dkfinh7e6OXlxf6/Pyk7+9v+gm4CNjd3eU6jIyMkA40NzdzbTICbMA/wE+8vr5ahIAYnXARcHl5SScnJ64OUABrOVXg+qamJlfb0dGR5WNU8BOq4DwNqwI8vMh6KhBdv7KyQkHhVAWICAOOgPX1dc7pYf6GQXt7O9cGBehA2GjBXY3BX1xcuNqqqqoCT4O8vDyqrq52tWHwd3d3FBY6wqXw6qmpKa4tqArYwQNh5O9EUVFRaHUKCTg9PeWmQVA/0Nvby7Xpkv/o6CjNz8/T1dWVdYbaVOGpn7W1NdffQaYBIgibR6yurmqRPxIkW13IYKGE/f19UoUnAaKcQFVuIusvLy+TDiCDZFN3NoT7gScBmAbsD6pOA6jGiYeHBy3yx5qhs7OTaxf5rliQulCQ4ITKNIBaWAtNTExYMTwsCgsLucQKz3p/f0+qkBIwNzfHtfX19ZEfiGL/wcEB6UBdXR3XhvwlCKQEIBKw04CVtQii2A8L3dzcUFhA/vD+7HPu7OxQEMTMIlgVgABW2ixEzg/XHR4eWnMXgwgKWJ+9PwYfdMkekwBRThArGng5y5qaGlpaWqLb21vrjLmsCpHzCyp/CyiIxDpmZmYMJ8w47tm3vr7eUIEZFYyuri6joKAA3lF65OTkcNebjs/wMwavw1cizeYEkKCXL2DVMTAwQOYAPcMfVLG4uGipAjmCyMHZaG1t5domJycpFPwyBas7Yd6Y61NcXOzqYw7KZUFY2Ryk1S4Dvh8fH+dUcX5+zvU1S3ahFOCbADOGu25sFjO4Pj09Pa4+5jz3lLM5lw3TKRqxgD7oay58uO/MdD3U4HFE/G6PIwFCUdOJhoYGV7KERYnTQ8PJxcr7TSvT2NiYNRXwWQXs/YPA92JalBM4vT0bHv2u+dEHnh1kyXyF6HmCZH4slKoJrDN0OjzW+QVZ89tOEGTgehmBUCT2FLAM9pOceUJlvuTm5lpz3wmEPXznbGedX5iju7ubu6cIcNKDg4OWI9YeBm2IUk5MA7bmr6vgAZydnflagGH6TU9PR1Xhuzii6jXZRAfWOT4+drX5SWr8HGa9j4s+tvdn7ylShB81KBPAyp0FwpaOweNITU3l8g9n5occAAShTQQ8ZywSApVU2S00J3QVPIHa2lpp1QdRAEUQ7F8iJLJrAkydhYUF+U2CKKCyslLIuE7nB/lD6ixwb9mzwRGysB21NgWIttAAnc5PVPLGfXHIgOX70NCQq01Wygu8qyAqmpr5O+kA6gWQPwtRhUoE9HMaSLbDHZgAdgtN124PgN0eUelNJe11KkUWRgMTwG6h6XR+FRUVnNVAuErq6zSOrFoU6h2hxsbG6Gfs1kK6RsiqL36jv7+fa1et+pSXl0c/y4jT9pKUGbOtM7arw+zdQ/6i/QTVVV9paWn0s+xa7W+J4b0eHFDCx8eH9VKDiirM3J+L/arWR1HW+RuyivGPvSYHKauqAtYXFVxVCIDlh4eHXdfKfMCvvIsGRaSnp1NGRob12assjtgv2k/wmsOI77azhMXxPtPe3h5lZ2dbbRh4rO2yX31RMpYqoABYDAOzQ5eX9THwzc1NkgEF01iRw3dJ7Kdg+wqc09LSrDZYEHt/ONra2oTXYckr25+A5f1UjP85AUHB1h9tQPYYuN+s8b8lAKESU8UOdwiVyP42NjaUXr/7bwnQhcT/C1CcI0EAxTkSBFCcI0EAxTkSBFCc4y/9beiVBW9S1gAAAABJRU5ErkJggg==" alt="contact photo">
-            <span style="position:absolute;left:-1000px;">contact info</span>
+            <span style="position:absolute;left:-1000px;">Download My Social Info</span>
         </a>
+        <button onclick="downloadContactInfo()">Download My Social Info</button>
     </main>
 </body>
 </html>

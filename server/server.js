@@ -6,7 +6,7 @@ url = require('url');
 
 dotenv.config();
 
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 
 const requestListener = (req, res) => {
     const responsePathName = url.parse(req.url).pathname;
